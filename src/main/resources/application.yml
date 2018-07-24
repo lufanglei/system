@@ -5,10 +5,10 @@ spring:
   application:
     name: system
   datasource:
-      name: system
-      url: jdbc:mysql://192.168.2.127:3306/siheng_core?useUnicode=true&characterEncoding=utf-8
+      name: coosv
+      url: jdbc:mysql://39.108.88.32:3306/coosv?useUnicode=true&characterEncoding=utf-8
       username: root
-      password: sihengit
+      password: coosv-data-2018
       type: com.alibaba.druid.pool.DruidDataSource
       driverclassname: com.mysql.jdbc.Driver
       filters: stat
