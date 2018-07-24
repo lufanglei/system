@@ -1,0 +1,26 @@
+server: 
+    port: 8080
+
+spring:
+  application:
+    name: system
+  datasource:
+      name: system
+      url: jdbc:mysql://192.168.2.127:3306/siheng_core?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: sihengit
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverclassname: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
