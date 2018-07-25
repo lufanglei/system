@@ -1,38 +1,28 @@
 package com.coosv.common.pojo.system.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import com.coosv.common.pojo.base.entity.BaseEntity;
 
 
 /**
  * The persistent class for the coosv_sys_permission database table.
  * 
  */
-@Entity
-@Table(name="coosv_sys_permission")
-@NamedQuery(name="Permission.findAll", query="SELECT p FROM Permission p")
-public class Permission extends com.coosv.common.pojo.base.entity.BaseEntity implements Serializable {
+public class Permission extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
 	private Date createDate;
 
 	private String creater;
 
-	@Column(name="resource_id")
 	private String resourceId;
 
-	@Column(name="role_id")
 	private String roleId;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
 	private Date updateDate;
 
 	private String updater;

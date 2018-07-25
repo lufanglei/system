@@ -1,26 +1,14 @@
 package com.coosv.common.pojo.system.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import com.coosv.common.pojo.base.entity.BaseEntity;
 import java.util.Date;
 
-
-/**
- * The persistent class for the coosv_sys_organization database table.
- * 
- */
-@Entity
-@Table(name="coosv_sys_organization")
-@NamedQuery(name="Organization.findAll", query="SELECT o FROM Organization o")
-public class Organization extends com.coosv.common.pojo.base.entity.BaseEntity implements Serializable {
+public class Organization extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
 	private Date createDate;
 
 	private String creater;
@@ -29,13 +17,10 @@ public class Organization extends com.coosv.common.pojo.base.entity.BaseEntity i
 
 	private String name;
 
-	@Column(name="parent_id")
 	private String parentId;
 
 	private String type;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
 	private Date updateDate;
 
 	private String updater;

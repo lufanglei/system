@@ -1,7 +1,9 @@
 package com.coosv.common.pojo.system.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import com.coosv.common.pojo.base.entity.BaseEntity;
+
 import java.util.Date;
 
 
@@ -9,20 +11,13 @@ import java.util.Date;
  * The persistent class for the coosv_sys_resource database table.
  * 
  */
-@Entity
-@Table(name="coosv_sys_resource")
-@NamedQuery(name="Resource.findAll", query="SELECT r FROM Resource r")
-public class Resource extends com.coosv.common.pojo.base.entity.BaseEntity implements Serializable {
+public class Resource extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 
 	private String code;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
 	private Date createDate;
 
 	private String creater;
@@ -31,13 +26,10 @@ public class Resource extends com.coosv.common.pojo.base.entity.BaseEntity imple
 
 	private String name;
 
-	@Column(name="parent_id")
 	private String parentId;
 
 	private int type;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
 	private Date updateDate;
 
 	private String updater;

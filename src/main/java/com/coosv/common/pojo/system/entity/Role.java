@@ -1,26 +1,16 @@
 package com.coosv.common.pojo.system.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import com.coosv.common.pojo.base.entity.BaseEntity;
+
 import java.util.Date;
 
 
-/**
- * The persistent class for the coosv_sys_role database table.
- * 
- */
-@Entity
-@Table(name="coosv_sys_role")
-@NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
-public class Role extends com.coosv.common.pojo.base.entity.BaseEntity implements Serializable {
+public class Role extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
 	private Date createDate;
 
 	private String creater;
@@ -29,11 +19,8 @@ public class Role extends com.coosv.common.pojo.base.entity.BaseEntity implement
 
 	private String name;
 
-	@Column(name="parent_id")
 	private String parentId;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
 	private Date updateDate;
 
 	private String updater;
