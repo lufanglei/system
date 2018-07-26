@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.coosv.common.annotation.MyBatisDao;
+
 @Configuration
 @AutoConfigureAfter(MyBatisConfig.class)
 public class MyBatisMapperScannerConfig {
@@ -14,7 +16,8 @@ public class MyBatisMapperScannerConfig {
         //获取之前注入的beanName为sqlSessionFactory的对象
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         //指定xml配置文件的路径
-        mapperScannerConfigurer.setBasePackage("com.framework.msg.mapper");
+        mapperScannerConfigurer.setBasePackage("com.coosv.**.dao");
+        mapperScannerConfigurer.setAnnotationClass(MyBatisDao.class);
         return mapperScannerConfigurer;
     }
 }

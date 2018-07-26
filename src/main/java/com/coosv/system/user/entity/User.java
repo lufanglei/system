@@ -2,7 +2,9 @@ package com.coosv.system.user.entity;
 
 import java.util.Date;
 
-public class User {
+import com.coosv.common.pojo.base.entity.BaseEntity;
+
+public class User extends BaseEntity{
     private String id;
 
     private String firstName;

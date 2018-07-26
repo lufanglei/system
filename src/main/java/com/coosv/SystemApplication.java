@@ -1,4 +1,4 @@
-package com.coosv.system;
+package com.coosv;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

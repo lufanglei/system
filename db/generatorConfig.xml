@@ -13,16 +13,14 @@
         
 		<jdbcConnection connectionURL="jdbc:mysql://39.108.88.32:3306/coosv" driverClass="com.mysql.jdbc.Driver" password="coosv-data-2018" userId="root" />
 		
-		<javaModelGenerator targetPackage="com.coosv.system.user.entity" targetProject="system/src/main/java" />
+		<javaModelGenerator targetPackage="com.coosv.system.role.entity" targetProject="system/src/main/java" />
 		
-		<sqlMapGenerator targetPackage="com.coosv.system.user.mapper" targetProject="system/src/main/java" />
+		<sqlMapGenerator targetPackage="com.coosv.system.role.mapper" targetProject="system/src/main/java" />
 		
-		<javaClientGenerator targetPackage="com.coosv.system.user.dao" targetProject="system/src/main/java" type="XMLMAPPER" />
+		<javaClientGenerator targetPackage="com.coosv.system.role.dao" targetProject="system/src/main/java" type="XMLMAPPER" />
 		
-		<table schema="coosv" tableName="coosv_sys_user" domainObjectName="User" mapperName="UserDao"
-			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-			
-            enableSelectByExample="false" selectByExampleQueryId="false">
+		<table schema="coosv" tableName="coosv_sys_role" domainObjectName="Role" mapperName="RoleDao" 
+		  enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
 			<property name="useActualColumnNames" value="false" />
 		</table>
 	</context>

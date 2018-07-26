@@ -1,8 +1,10 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/7/24 17:57:57                           */
+/* Created on:     2018/7/26 11:19:04                           */
 /*==============================================================*/
 
+
+drop table if exists coosv_sys_operation_log;
 
 drop table if exists coosv_sys_organization;
 
@@ -21,6 +23,19 @@ drop table if exists coosv_sys_user_organization;
 drop table if exists coosv_sys_user_role;
 
 /*==============================================================*/
+/* Table: coosv_sys_operation_log                               */
+/*==============================================================*/
+create table coosv_sys_operation_log
+(
+   id                   varchar(32) not null,
+   path                 varchar(50),
+   host                 varchar(20),
+   creater              varchar(32),
+   create_date          datetime,
+   primary key (id)
+);
+
+/*==============================================================*/
 /* Table: coosv_sys_organization                                */
 /*==============================================================*/
 create table coosv_sys_organization
@@ -33,7 +48,7 @@ create table coosv_sys_organization
    create_date          datetime,
    updater              varchar(32),
    update_date          datetime,
-   del                  int,
+   del                  bit,
    primary key (id)
 );
 
@@ -67,7 +82,7 @@ create table coosv_sys_resource
    create_date          datetime,
    updater              varchar(32),
    update_date          datetime,
-   del                  int,
+   del                  bit,
    primary key (id)
 );
 
@@ -83,7 +98,7 @@ create table coosv_sys_role
    create_date          datetime,
    updater              varchar(32),
    update_date          datetime,
-   del                  int,
+   del                  bit,
    primary key (id)
 );
 
@@ -119,7 +134,7 @@ create table coosv_sys_user
    creater              varchar(32),
    create_date          datetime,
    updater              varchar(32),
-   del                  int,
+   del                  bit,
    primary key (id)
 );
 

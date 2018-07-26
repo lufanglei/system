@@ -1,17 +1,10 @@
 package com.coosv.system.user.dao;
 
+import com.coosv.common.annotation.MyBatisDao;
+import com.coosv.common.dao.BaseDao;
 import com.coosv.system.user.entity.User;
 
-public interface UserDao {
-    int deleteByPrimaryKey(String id);
+@MyBatisDao
+public interface UserDao extends BaseDao<User>{
 
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(String id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

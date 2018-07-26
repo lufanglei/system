@@ -65,7 +65,7 @@ public class DruidConfig {
     @Value("${spring.datasource.filters}")
     private String filters;
 
-    @Value("${spring.datasource.logSlowSql}")
+    @Value("${spring.datasource.logSlowSql:true}")
     private String logSlowSql;
 
     @Bean
