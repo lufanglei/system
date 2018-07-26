@@ -30,8 +30,19 @@ public class User extends BaseEntity{
     private String updater;
 
     private Integer del;
+    
+    
 
-    public String getId() {
+    public User() {
+    	
+	}
+
+	public User(String id) {
+		super();
+		this.id = id;
+	}
+
+	public String getId() {
         return id;
     }
 

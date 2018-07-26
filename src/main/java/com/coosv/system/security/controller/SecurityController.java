@@ -6,6 +6,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.coosv.common.web.HttpCode;
 import com.coosv.common.web.HttpResult;
@@ -20,6 +21,7 @@ import io.swagger.annotations.ApiOperation;
  * @author fanglei.lu
  * @date 2018年7月26日
  */
+@RestController
 public class SecurityController {
 	
 	@Autowired
@@ -46,7 +48,9 @@ public class SecurityController {
 			result.setData(subject.getSession().getId());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			result.setCode(HttpCode.INTERNAL_SERVER_ERROR);
+			result.setMessage(e.getMessage());
 		}
 		return result;
 	}

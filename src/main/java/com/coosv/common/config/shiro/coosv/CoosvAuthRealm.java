@@ -11,8 +11,12 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import com.coosv.common.utils.string.StringUtils;
 import com.coosv.system.user.entity.User;
+import com.coosv.system.user.service.UserService;
 
 /**
  * 
@@ -20,8 +24,11 @@ import com.coosv.system.user.entity.User;
  * @author fanglei.lu
  * @date 2018年5月30日
  */
+@Component
 public class CoosvAuthRealm extends AuthorizingRealm{
 	
+	@Autowired
+	private UserService userService;
 	
 	@Override
 	protected AuthorizationInfo getAuthorizationInfo(PrincipalCollection principals) {
@@ -32,8 +39,6 @@ public class CoosvAuthRealm extends AuthorizingRealm{
 		
         AuthorizationInfo info = null;
 
-        
-        
         Subject subject = SecurityUtils.getSubject();
 		Session session = subject.getSession(false);
 		if (session == null){
@@ -48,8 +53,18 @@ public class CoosvAuthRealm extends AuthorizingRealm{
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 	    UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;
-	    User userInfo = new User();
-	    return new SimpleAuthenticationInfo(userInfo, "123456", getName());
+	    if(usernamePasswordToken.getPassword() == null || StringUtils.isBlank(usernamePasswordToken.getUsername())) {
+	    	throw new AuthenticationException("请输入用户名或密码。");
+	    }
+	    
+	    User tempUser = new User();
+	    tempUser.setUsername(usernamePasswordToken.getUsername());
+	    
+	    User user = userService.get(tempUser);
+	    if(user == null) {
+	    	throw new AuthenticationException("系统无此用户。");
+	    }
+	    return new SimpleAuthenticationInfo(new Principal(user.getId(),user.getUsername()), user.getPassword(), getName());
 	}
 
 

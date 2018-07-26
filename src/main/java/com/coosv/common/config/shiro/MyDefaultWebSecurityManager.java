@@ -31,9 +31,6 @@ public class MyDefaultWebSecurityManager extends DefaultWebSecurityManager{
             ServletResponse response = WebUtils.getResponse(context);
             HttpServletRequest httpreq = WebUtils.toHttp(request);
             Serializable sessionId = httpreq.getHeader(AUTHORIZATION);
-            if (sessionId == null || "".equals(sessionId)) {
-            	sessionId = httpreq.getParameter(AUTHORIZATION);
-            }
   
             if(sessionId==null) {
             	sessionId = context.getSessionId();

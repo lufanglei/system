@@ -118,29 +118,16 @@ public class ShiroConfig {
      * @return
      */
     @Bean(name="securityManager")
-    public SecurityManager securityManager(@Qualifier("authRealm") CoosvAuthRealm authRealm,@Qualifier("shiroSessionManager") SessionManager shiroSessionManager,@Qualifier("shiroCacheManager") RedisCacheManager shiroCacheManager) {
+    public SecurityManager securityManager(@Qualifier("coosvAuthRealm") CoosvAuthRealm authRealm,@Qualifier("credentialsMatcher") CredentialsMatcher matcher,@Qualifier("shiroSessionManager") SessionManager shiroSessionManager,@Qualifier("shiroCacheManager") RedisCacheManager shiroCacheManager) {
         DefaultWebSecurityManager manager=new MyDefaultWebSecurityManager();
+        authRealm.setCredentialsMatcher(matcher);
         manager.setRealm(authRealm);
         manager.setSessionManager(shiroSessionManager);
         manager.setCacheManager(shiroCacheManager);
         
         return manager;
     }
-    /**
-     * 配置自定义的权限登录器
-     * @param matcher
-     * @return
-     */
-    @Bean(name="authRealm")
-    public CoosvAuthRealm authRealm(@Qualifier("credentialsMatcher") CredentialsMatcher matcher) {
-        CoosvAuthRealm authRealm = new CoosvAuthRealm();
-        authRealm.setCredentialsMatcher(matcher);
-        return authRealm;
-    }
-    /**
-     * 配置自定义的密码比较器
-     * @return
-     */
+
     @Bean(name="credentialsMatcher")
     public CredentialsMatcher credentialsMatcher() {
         return new CredentialsMatcher();

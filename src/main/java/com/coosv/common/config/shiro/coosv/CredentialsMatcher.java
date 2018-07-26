@@ -8,6 +8,7 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.springframework.stereotype.Component;
 
 import com.coosv.common.utils.encryption.Md5Utils;
+import com.coosv.common.utils.string.StringUtils;
 
 /**
  * 
@@ -20,14 +21,19 @@ public class CredentialsMatcher extends SimpleCredentialsMatcher{
 	@Override
 	public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
 		// TODO Auto-generated method stub
-		UsernamePasswordToken utoken = (UsernamePasswordToken) token;
+		UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
+		String password = new String(usernamePasswordToken.getPassword());
+		if(StringUtils.isBlank(password)) {
+			return false;
+		}
+		
         //获得用户输入的密码
-        String inPassword = Md5Utils.encodeMD5Hex(new String(utoken.getPassword()));
+        String inPassword = Md5Utils.encodeMD5Hex(password);
         
         //获得数据库中的密码
         String dbPassword=(String) info.getCredentials();
         //进行密码的比对
-        return true;//this.equals(inPassword, dbPassword);
+        return this.equals(inPassword, dbPassword);
 	}
 	
 	public static void main(String[] args) {
