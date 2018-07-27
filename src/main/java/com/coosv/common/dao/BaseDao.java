@@ -1,6 +1,7 @@
 package com.coosv.common.dao;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description TODO
@@ -20,13 +21,6 @@ public interface BaseDao<T> {
 	 * @param entity
 	 * @return
 	 */
-	public int delete(T entity);
-	
-	/**
-	 * 删除数据
-	 * @param entity
-	 * @return
-	 */
 	public int delete(String id);
 	
 	/**
@@ -35,13 +29,6 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	public int update(T entity);
-	
-	/**
-	 * 获取一条数据
-	 * @param entity
-	 * @return
-	 */
-	public T get(T entity);
 	
 	/**
 	 * 获取一条数据
@@ -56,4 +43,11 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	public List<T> findList(T entity);
+	
+	/**
+	 * 按条件统计
+	 * @param entity
+	 * @return
+	 */
+	public int count(T entity);
 }

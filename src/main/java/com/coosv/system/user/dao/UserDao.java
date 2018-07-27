@@ -6,5 +6,5 @@ import com.coosv.system.user.entity.User;
 
 @MyBatisDao
 public interface UserDao extends BaseDao<User>{
-
+	public User getUserByUsername(String username);
 }

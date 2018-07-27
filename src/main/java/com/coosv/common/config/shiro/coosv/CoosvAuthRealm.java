@@ -57,10 +57,7 @@ public class CoosvAuthRealm extends AuthorizingRealm{
 	    	throw new AuthenticationException("请输入用户名或密码。");
 	    }
 	    
-	    User tempUser = new User();
-	    tempUser.setUsername(usernamePasswordToken.getUsername());
-	    
-	    User user = userService.get(tempUser);
+	    User user = userService.getUserByUsername(usernamePasswordToken.getUsername());
 	    if(user == null) {
 	    	throw new AuthenticationException("系统无此用户。");
 	    }
