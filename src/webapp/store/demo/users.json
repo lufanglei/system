@@ -1,0 +1,366 @@
+{
+    "code": "200",
+    "message": "操作成功",
+    "data": {
+        "pageNo": 1,
+        "pageSize": 30,
+        "count": 0,
+        "first": 1,
+        "last": 1,
+        "prev": 1,
+        "next": 1,
+        "firstPage": true,
+        "lastPage": true,
+        "length": 8,
+        "slider": 1,
+        "list": [
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "loginName": "lay",
+                "password": "asasdf",
+                "no": "00000001",
+                "name": "lay",
+                "email": "lay@oighola.com",
+                "mobile": "185162191978",
+                "loginFlag": "1",
+                "roleList": [],
+                "remarks": "asdfasdfasdfasdf\r\nasd\r\nfa\r\nsdf\r\nas\r\ndf\r\nas\r\ndf\r\nasd\r\nf\r\nasd\r\nf\r\nasd\r\nf\r\nasd\r\nfas\r\ndf\r\nasd\r\nf",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "e0f247e0cdac486c8d424c60f3f10dec",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "loginName": "lay",
+                "password": "asdf",
+                "no": "000001",
+                "name": "test",
+                "email": "lay@oighola.com",
+                "mobile": "185162191978",
+                "loginFlag": "1",
+                "roleList": [],
+                "remarks": "我们先做一个测试如何asdf",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "7f66fca806c14fb59204b5593df7e6d2",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "2",
+                    "isNewRecord": false
+                },
+                "loginName": "12",
+                "password": "482d0ee96535f8454b0c0847a00b34d4b69eb691e557fa2f9d87967a",
+                "no": "1111",
+                "name": "12",
+                "email": "",
+                "phone": "",
+                "mobile": "",
+                "loginFlag": "1",
+                "photo": "",
+                "roleList": [],
+                "remarks": "",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "404e8d61231c4c22aaccbc9913859cbd",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "2",
+                    "isNewRecord": false
+                },
+                "loginName": "12",
+                "password": "482d0ee96535f8454b0c0847a00b34d4b69eb691e557fa2f9d87967a",
+                "no": "1111",
+                "name": "12",
+                "email": "",
+                "phone": "",
+                "mobile": "",
+                "loginFlag": "1",
+                "photo": "",
+                "roleList": [],
+                "remarks": "",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "404e8d61231c4c22aaccbc9913859cbd",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "2",
+                    "isNewRecord": false
+                },
+                "loginName": "12",
+                "password": "482d0ee96535f8454b0c0847a00b34d4b69eb691e557fa2f9d87967a",
+                "no": "1111",
+                "name": "12",
+                "email": "",
+                "phone": "",
+                "mobile": "",
+                "loginFlag": "1",
+                "photo": "",
+                "roleList": [],
+                "remarks": "",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "404e8d61231c4c22aaccbc9913859cbd",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "2",
+                    "isNewRecord": false
+                },
+                "loginName": "test01",
+                "password": "e10adc3949ba59abbe56e057f20f883e",
+                "no": "purchase01",
+                "name": "采购",
+                "email": "",
+                "phone": "",
+                "mobile": "",
+                "loginFlag": "1",
+                "photo": "",
+                "roleList": [],
+                "remarks": "",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "78a183735c014f958789bbfa4ec4b0cc",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "22",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "23",
+                    "isNewRecord": false
+                },
+                "loginName": "gx_admin",
+                "password": "02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032",
+                "no": "0013",
+                "name": "济南高新领导",
+                "loginFlag": "1",
+                "roleList": [],
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "13",
+                "isNewRecord": false
+            },
+            {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "22",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "24",
+                    "isNewRecord": false
+                },
+                "loginName": "786",
+                "password": "202cb962ac59075b964b07152d234b70",
+                "no": "786",
+                "name": "田建立",
+                "email": "",
+                "phone": "",
+                "mobile": "",
+                "loginFlag": "1",
+                "photo": "",
+                "roleList": [],
+                "remarks": "",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "73610e0fc3b344859a4b26eb4166e030",
+                "isNewRecord": false
+            }
+        ],
+        "orderBy": "",
+        "funcName": "page",
+        "funcParam": "",
+        "message": ""
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "code": "200",
+    "message": "操作成功",
+    "data": {
+                "company": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "office": {
+                    "type": "2",
+                    "sort": 30,
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "loginName": "lay",
+                "password": "asasdf",
+                "no": "00000001",
+                "name": "lay",
+                "email": "lay@oighola.com",
+                "mobile": "185162191978",
+                "loginFlag": "1",
+                "roleList": [],
+                "remarks": "asdfasdfasdfasdf\r\nasd\r\nfa\r\nsdf\r\nas\r\ndf\r\nas\r\ndf\r\nasd\r\nf\r\nasd\r\nf\r\nasd\r\nf\r\nasd\r\nfas\r\ndf\r\nasd\r\nf",
+                "createBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "updateBy": {
+                    "loginFlag": "1",
+                    "roleList": [],
+                    "delFlag": "0",
+                    "id": "1",
+                    "isNewRecord": false
+                },
+                "delFlag": "0",
+                "id": "e0f247e0cdac486c8d424c60f3f10dec",
+                "isNewRecord": false
+            }
+}

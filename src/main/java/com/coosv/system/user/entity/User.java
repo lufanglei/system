@@ -4,8 +4,7 @@ import java.util.Date;
 
 import com.coosv.common.pojo.base.entity.BaseEntity;
 
-public class User extends BaseEntity{
-    private String id;
+public class User extends BaseEntity {
 
     private String firstName;
 
@@ -22,33 +21,15 @@ public class User extends BaseEntity{
     private Date birthDate;
 
     private Integer status;
-
-    private String creater;
-
-    private Date createDate;
-
-    private String updater;
-
-    private Integer del;
     
-    
-
     public User() {
     	
 	}
 
 	public User(String id) {
 		super();
-		this.id = id;
+		setId(id);
 	}
-
-	public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -114,35 +95,4 @@ public class User extends BaseEntity{
         this.status = status;
     }
 
-    public String getCreater() {
-        return creater;
-    }
-
-    public void setCreater(String creater) {
-        this.creater = creater;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getUpdater() {
-        return updater;
-    }
-
-    public void setUpdater(String updater) {
-        this.updater = updater;
-    }
-
-    public Integer getDel() {
-        return del;
-    }
-
-    public void setDel(Integer del) {
-        this.del = del;
-    }
 }

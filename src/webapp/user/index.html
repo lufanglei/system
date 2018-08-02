@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  
+	  <title>INDEX</title>
+	  
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  
+	  <!-- Bootstrap CSS -->
+	  <link rel="stylesheet" href="../assets/plugin/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
+	  <link rel="stylesheet" href="../assets/plugin/ztree/css/metroStyle.css">
+	  <link rel="stylesheet" href="../assets/css/main.css">
+	  
+	  <!-- Optional JavaScript -->
+	  <script type="text/javascript" src="../assets/plugin/jquery/jquery.min.js"></script>
+	  <script type="text/javascript" src="../assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+	  <script src="../assets/plugin/template/juicer.js"></script>
+	  <script src="../assets/plugin/ztree/js/jquery.ztree.all.js"></script>
+	  <script src="../assets/plugin/vue/vue.js"></script>
+	  <script src="../assets/js/coosv.global.js"></script>
+	  <script src="../assets/js/utils/data.js"></script>
+	  <script src="../assets/js/utils/page.js"></script>
+	  <script src="../assets/plugin/jquery/jquery.pagination.js"></script>
+	  <script src="../assets/js/coosv-component/coosv.component.js"></script>
+
+	  <script type="text/javascript" src="user.js"></script> 
+    <script>
+
+    $(document).ready(function(){
+    	pageHelper.initBreadcrumb(".coosv-breadcrumb");
+        var vm = new Vue({
+            el: '.coosv-table',
+            data: tableData
+        });
+        
+        var vm = new Vue({
+            el: '.coosv-tree',
+            data: {
+            	setting : {
+                		view: {
+                            selectedMulti: false
+                        },
+            			data: {
+            				key: {
+            					title:"t"
+            				},
+            				simpleData: {
+            					enable: true
+            				}
+            			},
+            			add:{
+                        	type:"modal",
+                        	href:"/organization/add.html",
+                        	size:"modal-md",
+                        	title:"添加机构"
+                        },
+                        edit:{
+                        	type:"modal",
+                        	href:"/organization/add.html",
+                        	size:"modal-md",
+                        	title:"修改机构",
+                        	click:function(){alert("abc")}
+                        },
+                        remove:{
+                        	type:"load",
+                        	click:function(){alert("abc")}
+                        	
+                        }
+            		}
+            }
+        });
+        
+   
+    });
+    </script>
+	</head>
+	<body>
+        <div class="container-fluid">
+            <div class="row"><div class="col coosv-breadcrumb"></div></div>
+		    <div class="row mb-3">
+		    	<div class="col-3 coosv-tree">
+		    		<coosv-tree :setting="setting" href="/organization/findList"></coosv-tree>
+		    	</div>
+		        <div class="col-9 coosv-table">
+					<coosv-table :heads="heads" :buttons="buttons" url="http://localhost/store/demo/users.json"></coosv-table>
+		        </div>
+		    </div>
+        </div>
+  </body>
+</html>

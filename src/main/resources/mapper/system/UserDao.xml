@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.coosv.system.user.dao.UserDao">
-  <resultMap id="BaseResultMap" type="com.coosv.system.user.entity.User">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="first_name" jdbcType="VARCHAR" property="firstName" />
-    <result column="last_name" jdbcType="VARCHAR" property="lastName" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="birth_date" jdbcType="TIMESTAMP" property="birthDate" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="creater" jdbcType="VARCHAR" property="creater" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="updater" jdbcType="VARCHAR" property="updater" />
-    <result column="del" jdbcType="INTEGER" property="del" />
-  </resultMap>
   <sql id="Base_Column_List">
-    id, first_name, last_name, username, password, email, sex, birth_date, status, creater, 
-    create_date, updater, del
+    id, first_name, last_name, username, password, email, sex, birth_date, status, creater as "creater.id", 
+    create_date, updater as "updater.id", del
   </sql>
-  <select id="get" resultMap="BaseResultMap">
+  <select id="get" resultType="com.coosv.system.user.entity.User">
     select 
     <include refid="Base_Column_List" />
     from coosv_sys_user
     where id = #{id}
   </select>
-  <select id="getUserByUsername" resultMap="BaseResultMap">
+  <select id="getUserByUsername" resultType="com.coosv.system.user.entity.User">
     select 
     <include refid="Base_Column_List" />
     from coosv_sys_user
     where username = #{username}
   </select>
-  <select id="findList" resultMap="BaseResultMap">
+  <select id="findList" resultType="com.coosv.system.user.entity.User">
     select 
     <include refid="Base_Column_List" />
     from coosv_sys_user
@@ -59,22 +44,22 @@
           sex = #{sex}
         </if>
         <if test="birthDate != null">
-          birth_date = #{birthDate,jdbcType=TIMESTAMP}
+          birth_date = #{birthDate}
         </if>
         <if test="status != null">
-          status = #{status,jdbcType=INTEGER}
+          status = #{status}
         </if>
         <if test="creater != null">
-          creater = #{creater}
+          creater = #{creater.id}
         </if>
         <if test="createDate != null">
-          create_date = #{createDate,jdbcType=TIMESTAMP}
+          create_date = #{createDate}
         </if>
-        <if test="updater != null">
-          updater = #{updater}
+        <if test="updater.id != null">
+          updater = #{updater.id}
         </if>
         <if test="del != null">
-          del = #{del,jdbcType=INTEGER}
+          del = #{del}
         </if>
       </where>
   </select>
@@ -118,7 +103,7 @@
       <if test="createDate != null">
         create_date,
       </if>
-      <if test="updater != null">
+      <if test="updater.id != null">
         updater,
       </if>
       <if test="del != null">
@@ -148,22 +133,22 @@
         #{sex},
       </if>
       <if test="birthDate != null">
-        #{birthDate,jdbcType=TIMESTAMP},
+        #{birthDate},
       </if>
       <if test="status != null">
-        #{status,jdbcType=INTEGER},
+        #{status},
       </if>
       <if test="creater != null">
-        #{creater},
+        #{creater.id},
       </if>
       <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
+        #{createDate},
       </if>
-      <if test="updater != null">
-        #{updater},
+      <if test="updater.id != null">
+        #{updater.id},
       </if>
       <if test="del != null">
-        #{del,jdbcType=INTEGER},
+        #{del},
       </if>
     </trim>
   </insert>
@@ -189,22 +174,22 @@
         sex = #{sex},
       </if>
       <if test="birthDate != null">
-        birth_date = #{birthDate,jdbcType=TIMESTAMP},
+        birth_date = #{birthDate},
       </if>
       <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
+        status = #{status},
       </if>
       <if test="creater != null">
-        creater = #{creater},
+        creater = #{creater.id},
       </if>
       <if test="createDate != null">
-        create_date = #{createDate,jdbcType=TIMESTAMP},
+        create_date = #{createDate},
       </if>
-      <if test="updater != null">
-        updater = #{updater},
+      <if test="updater.id != null">
+        updater = #{updater.id},
       </if>
       <if test="del != null">
-        del = #{del,jdbcType=INTEGER},
+        del = #{del},
       </if>
     </set>
     where id = #{id}

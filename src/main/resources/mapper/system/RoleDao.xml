@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coosv.system.role.dao.RoleDao">
+  <sql id="Base_Column_List">
+    id, name, parent_id, level, creater as "creater.id", create_date, updater as "updater.id", update_date, tenant, del
+  </sql>
+  <select id="get" parameterType="java.lang.String" resultType="com.coosv.system.role.entity.Role">
+    select 
+    <include refid="Base_Column_List" />
+    from coosv_sys_role
+    where id = #{id}
+  </select>
+  <select id="findList" parameterType="java.lang.String" resultType="com.coosv.system.role.entity.Role">
+    select 
+    <include refid="Base_Column_List" />
+    from coosv_sys_role
+    <where>
+    	<if test="name != null">
+        name = #{name},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId},
+      </if>
+      <if test="level != null">
+        level = #{level},
+      </if>
+      <if test="creater != null">
+        creater = #{creater.id},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate},
+      </if>
+      <if test="updater.id != null">
+        updater = #{updater.id},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate},
+      </if>
+      <if test="tenant != null">
+        tenant = #{tenant},
+      </if>
+      <if test="del != null">
+        del = #{del},
+      </if>
+    </where>
+  </select>
+  <delete id="delete" parameterType="java.lang.String">
+    delete from coosv_sys_role
+    where id = #{id}
+  </delete>
+  <insert id="save" parameterType="com.coosv.system.role.entity.Role">
+    insert into coosv_sys_role (id, name, parent_id, 
+      level, creater, create_date, 
+      updater, update_date, tenant, 
+      del)
+    values (#{id}, #{name}, #{parentId}, 
+      #{level}, #{creater.id}, #{createDate}, 
+      #{updater.id}, #{updateDate}, #{tenant}, 
+      #{del})
+  </insert>
+  <update id="update" parameterType="com.coosv.system.role.entity.Role">
+    update coosv_sys_role
+    <set>
+      <if test="name != null">
+        name = #{name},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId},
+      </if>
+      <if test="level != null">
+        level = #{level},
+      </if>
+      <if test="creater != null">
+        creater = #{creater.id},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate},
+      </if>
+      <if test="updater.id != null">
+        updater = #{updater.id},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate},
+      </if>
+      <if test="tenant != null">
+        tenant = #{tenant},
+      </if>
+      <if test="del != null">
+        del = #{del},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+</mapper>

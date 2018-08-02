@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coosv.system.organization.dao.OrganizationDao">
+  <sql id="Base_Column_List">
+    id, name, code, parent_id, root_id, level, type, creater as "creater.id", create_date, updater as "updater.id", update_date, 
+    tenant, del
+  </sql>
+  <select id="get" parameterType="java.lang.String" resultType="com.coosv.system.organization.entity.Organization">
+    select 
+    <include refid="Base_Column_List" />
+    from coosv_sys_organization
+    where id = #{id}
+  </select>
+  <select id="findList" parameterType="java.lang.String" resultType="com.coosv.system.organization.entity.Organization">
+    select 
+    <include refid="Base_Column_List" />
+    from coosv_sys_organization
+    <where>
+    	<if test="name != null">
+        name = #{name},
+      </if>
+      <if test="code != null">
+        code = #{code},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId},
+      </if>
+      <if test="rootId != null">
+        root_id = #{rootId},
+      </if>
+      <if test="level != null">
+        level = #{level},
+      </if>
+      <if test="type != null">
+        type = #{type},
+      </if>
+      <if test="creater !=null and creater.id != null">
+        creater = #{creater.id},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate},
+      </if>
+      <if test="updater !=null and updater.id != null">
+        updater = #{updater.id},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate},
+      </if>
+      <if test="tenant != null">
+        tenant = #{tenant},
+      </if>
+      <if test="del != null">
+        del = #{del},
+      </if>
+    </where>
+  </select>
+  <delete id="delete" parameterType="java.lang.String">
+    delete from coosv_sys_organization
+    where id = #{id}
+  </delete>
+  <insert id="save" parameterType="com.coosv.system.organization.entity.Organization">
+    insert into coosv_sys_organization (id, name, code, parent_id, 
+      root_id, level, type, 
+      creater, create_date, updater, 
+      update_date, tenant, del
+      )
+    values (#{id}, #{name}, #{code}, #{parentId}, 
+      #{rootId}, #{level}, #{type}, 
+      #{creater.id}, #{createDate}, #{updater.id}, 
+      #{updateDate}, #{tenant}, #{del}
+      )
+  </insert>
+  <update id="update" parameterType="com.coosv.system.organization.entity.Organization">
+    update coosv_sys_organization
+    <set>
+      <if test="name != null">
+        name = #{name},
+      </if>
+      <if test="code != null">
+        code = #{code},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId},
+      </if>
+      <if test="rootId != null">
+        root_id = #{rootId},
+      </if>
+      <if test="level != null">
+        level = #{level},
+      </if>
+      <if test="type != null">
+        type = #{type},
+      </if>
+      <if test="creater !=null and creater.id != null">
+        creater = #{creater.id},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate},
+      </if>
+      <if test="updater !=null and updater.id != null">
+        updater = #{updater.id},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate},
+      </if>
+      <if test="tenant != null">
+        tenant = #{tenant},
+      </if>
+      <if test="del != null">
+        del = #{del},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+</mapper>

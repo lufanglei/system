@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  
+	  <title>INDEX</title>
+	  
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  
+	  <!-- Bootstrap CSS -->
+	  <link rel="stylesheet" href="assets/plugin/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
+	  <link rel="stylesheet" href="assets/css/main.css">
+	  
+	  <!-- Optional JavaScript -->
+	  <script type="text/javascript" src="assets/plugin/jquery/jquery.min.js"></script>
+	  <script type="text/javascript" src="assets/plugin/jquery/jquery.validate.js"></script>
+	  <script type="text/javascript" src="assets/plugin/jquery/messages_zh.js"></script>
+	  <script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+	  <script src="assets/plugin/vue/vue.js"></script>
+	  <script src="assets/js/coosv.global.js"></script>
+	  <script src="assets/js/utils/data.js"></script>
+	  <script src="assets/js/utils/page.js"></script>
+	  <script src="assets/plugin/jquery/jquery.pagination.js"></script>
+	  <script src="assets/js/coosv-component/coosv.component.js"></script>
+	  
+	  <script type="text/javascript" src="user/user.js"></script> 
+    <script>
+
+    $(document).ready(function(){
+        var vm = new Vue({
+            el: '.coosv-form',
+            data: formData
+        });
+    });
+    </script>
+	</head>
+	<body>
+        <div class="container-fluid">
+	        
+		    <div class="row mb-3">
+		        <div class="col coosv-form">
+                    <coosv-detail :fields="fields" href="http://localhost:8767/auth/user/getUserByID?userid=${id}" action="http://localhost:8767/auth/user/update"></coosv-detail>
+		        </div>
+		    </div>
+		    
+        </div>
+        
+        
+    
+  </body>
+</html>

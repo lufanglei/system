@@ -1,0 +1,97 @@
+@media screen and (min-width: 576px) { /*当屏幕尺寸小于576px时，应用下面的CSS样式*/
+	html,body{
+	    margin:0px;
+	    height:100%;
+	}
+    .coosv-container{
+	    height:100%;
+	}
+	.coosv-body{
+	    height: calc(100% - 60px);
+	}
+    .coosv-aside{
+        height:100%;
+        overflow-x:auto;
+    }
+    .coosv-main{
+        height:100%;
+        overflow-x:auto;
+    }
+    .main-tab-content{
+	    height: calc(100% - 42px);
+	    overflow-x:auto;
+	}
+	
+}
+
+.aside-submenu{
+	cursor: pointer;
+}
+
+.main-tab-close{
+	margin-left: 10px;
+}
+
+.main-tab-content iframe {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+}
+
+.main-tabs{
+	background-color: rgba(0,0,0,.2);
+	-moz-user-select: none; /*火狐*/
+    -webkit-user-select: none;  /*webkit浏览器*/
+    -ms-user-select: none;   /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+.main-tab{
+	cursor: pointer;
+}
+
+.pagination a {
+    text-decoration: none;
+    border: 1px solid #AAE;
+    color: #15B;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 0.1em 0.4em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.pagination .current {
+    background: #26B;
+    color: #fff;
+    border: 1px solid #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next{
+    color:#999;
+    border-color:#999;
+    background:#fff;
+}
+
+.input-group .form-check-inline{
+	border: 1px solid #ced4da;
+}
+
+div.error {
+    /*color: red;
+    font-style: initial;
+    position: absolute;
+    top:30px;*/
+    font-size: 10px;
+    width: 100%;
+    font-size: 80%;
+    color: #dc3545;
+    text-align: right;
+    
+}
+input.error {
+	border-color: #dc3545;
+}
+
