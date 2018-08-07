@@ -1,6 +1,5 @@
 var formData = {
-    	fields:[{id:"id",type:"hidden",name:"唯一标志"}
-        ,{id:"loginName",type:"input",name:"登录名",col:"col-sm-12 col-md-6 col-lg-4",rules:{required:true,maxlength:6}}
+    	fields:[{id:"loginName",type:"input",name:"登录名",col:"col-sm-12 col-md-6 col-lg-4",rules:{required:true,maxlength:6}}
         ,{id:"password",type:"password",name:"密码",col:"col-sm-12 col-md-6 col-lg-4"}
     	,{id:"name",type:"input",name:"名称",col:"col-sm-12 col-md-6 col-lg-4",rules:{required:true,maxlength:6}}
     	,{id:"mobile",type:"input",name:"电话",col:"col-sm-12 col-md-6 col-lg-4"}
@@ -21,9 +20,9 @@ var tableData = {
             	,{id:"no", type:"row", name:"工号",filter:{type:"input",col:"col-sm-6 col-md-3 col-lg-2"}}
             	,{id:"remarks",type:"row",name:"备注",filter:{type:"input",col:"col-sm-6 col-md-3 col-lg-2"}}
             	,{type:"block",width:"150px",name:"操作",links:[
-            		{type:"link",name:"修改",fresh:true,toggle:{type:"modal",title:"修改用户",url:"edit.html?id=${id}"}}
+            		{type:"link",name:"修改",fresh:true,toggle:{type:"modal",title:"修改用户",url:"/user/edit.html?id=${id}"}}
             		,{type:"link",name:"删除",fresh:true,toggle:{type:"load",title:"删除用户",warn:"是否删除此数据？",url:"http://localhost:8767/auth/user/delete?userid=${id}"}}
-            		,{type:"link",name:"查看",fresh:false,toggle:{type:"modal",title:"查看用户",url:"detail.html?id=${id}"}}
+            		,{type:"link",name:"查看",fresh:false,toggle:{type:"modal",title:"查看用户",url:"/user/detail.html?id=${id}"}}
             	]}
         ],
     	buttons:[

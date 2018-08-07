@@ -76,7 +76,7 @@ var coosv_form_template = "<form><div class=\"form-row\">"
 	+"<div class=\"col\" hidden>"
 	+"<template v-for=\"field in fields\">"
 	+"<template v-if=\"field.type === 'hidden'\">"
-		+"<input type=\"hidden\" :name=\"field.id\" :id=\"field.id\" :value=\"formData[field.id]\">"
+		+"<input type=\"hidden\" :name=\"field.id\" :id=\"field.id\" :value=\"field.value===undefined?formData[field.id]:field.value\">"
 	+"</template>"
 	+"</template>"
 	+"</div>"
@@ -87,7 +87,7 @@ var coosv_form_template = "<form><div class=\"form-row\">"
 		    +"<div class=\"input-group-prepend\">"
 		        +"<span class=\"input-group-text\" id=\"inputGroup-sizing-sm\">{{ field.name }}：</span>"
 		    +"</div>"
-		    +"<input v-if=\"field.type == 'input' || field.type == 'password' || field.type == 'date'\"\" :type=\"field.type\" :name=\"field.id\" :id=\"field.id\" :readonly=\"field.readonly\" :value=\"formData[field.id]\" :placeholder=\"field.name\" :rules=\"JSON.stringify(field.rules)\" class=\"form-control\">"
+		    +"<input v-if=\"field.type == undefined || field.type == 'input' || field.type == 'password' || field.type == 'date'\"\" :type=\"field.type\" :name=\"field.id\" :id=\"field.id\" :readonly=\"field.readonly\" :value=\"field.value===undefined?formData[field.id]:field.value\" :placeholder=\"field.name\" :rules=\"JSON.stringify(field.rules)\" class=\"form-control\">"
 		    +"<select v-if=\"field.type == 'select'\" class=\"form-control form-control-sm\" id=\"inputGroupSelect01\">"
 				+"<option value=\"\">请选择</option>"
 				+"<template v-if=\"field.data != undefined && field.data.list != undefined\">"
@@ -168,6 +168,8 @@ var coosv_detail_template = "<form><div class=\"form-row\">"
 
 var coosv_tree_template = "<ul id=\"tree\" class=\"ztree\"></ul>";
 
+var message_vue = new Vue()
+Vue.prototype.message = message_vue;
 
 Vue.component('coosv-tree', {
 	props: {
@@ -181,6 +183,12 @@ Vue.component('coosv-tree', {
 	data: function () {
 		var comp = this;
 		comp.nodes = [];
+		if(comp.setting.callback === undefined){
+			comp.setting.callback = new Object();
+		}
+		comp.setting.callback.onClick = function(event, treeId, treeNode){
+			comp.message.$emit('changeTreeId',treeNode.id)
+		}
 		comp.selectNodeId = 0;
 		return new Object();
     },
@@ -198,17 +206,16 @@ Vue.component('coosv-tree', {
     				console.log(comp.nodes);
     				if(comp.setting.add!= undefined){
     					if(comp.setting.add.type=="modal"){
-    						console.log("modal....");
     						comp.setting.add.click = function(zt,param){
-    							comp.selectNodeId = param.tId;
-    							pageHelper.dialog({href:"/organization/add.html",size:"modal-md",title:"添加机构",closeCallback:function(){comp.showTree()}})
+    							comp.selectNodeId = param.id;
+    							pageHelper.dialog({href:comp.setting.add.href+"?parentId="+param.id,size:"modal-md",title:"添加机构",closeCallback:function(){comp.showTree()}})
     						}
     					}
     				}
-    				console.log(comp.selectNodeId);
-    				
     				var tree = $.fn.zTree.init($(comp.$el), comp.setting, comp.nodes);
-    				tree.selectNode(tree.getNodeByTId(comp.selectNodeId));
+    				var node = tree.getNodeByParam("id", comp.selectNodeId, null);
+    				tree.selectNode(node);
+    				tree.expandNode(node, true, true, true);
     			}else{
     				$(comp.$el).html("<li>数据加载异常</li>");
     			}
@@ -216,6 +223,9 @@ Vue.component('coosv-tree', {
     			
     			comp.$forceUpdate();
             });
+    	},
+    	selectChange: function(){
+    		
     	}
 	},
     template: coosv_tree_template
@@ -247,15 +257,22 @@ Vue.component('coosv-form', {
 		comp.setDefault(comp.reset,"show",true);
 		comp.setDefault(comp.reset,"click",comp.resetToDo);
 		comp.formData = {};
-		console.log(comp);
 		return new Object();
     },
     mounted: function () {
     	var comp = this;
+    	var href = $(comp.$el).parents('.coosv-dialog').attr("href");
+    	var request = pageHelper.getRequest(href);
+		for(p in request){
+			var param = new Object();
+			param.id=p;
+			param.name=p;
+			param.type='hidden';
+			param.value=request[p];
+			comp.fields[comp.fields.length] = param;
+		}
     	if(comp.href != undefined){
-			var href = $(comp.$el).parents('.coosv-dialog').attr("href");
 			if(href != undefined){
-				var request = pageHelper.getRequest(href);
 				if(Object.keys(request).length>0){
 					comp.href = pageHelper.getText(comp.href,request);
 					dataHelper.asyncByAuth(comp.href,"","GET",function(data){
@@ -267,8 +284,8 @@ Vue.component('coosv-form', {
 				}
 				
 			}
-			
-			
+		}else{
+			comp.$forceUpdate();
 		}
     },
     methods: {
@@ -331,7 +348,6 @@ Vue.component('coosv-detail', {
 		comp.setDefault(comp.cancel,"show",true);
 		comp.setDefault(comp.cancel,"click",comp.cancelToDo);
 		comp.formData = {};
-		console.log(comp);
 		return new Object();
     },
     mounted: function () {
@@ -393,7 +409,11 @@ Vue.component('coosv-table', {
     },
     created: function () {
     	var comp = this;
-    	console.log(comp.url);
+    	
+    	this.message.$on('changeTreeId', function (id) {
+            alert(id);
+        });
+    	
 		dataHelper.asyncGetByAuth(comp.url,"",function(data){
 			comp.page = data.data;
 			comp.flag = false;
@@ -411,7 +431,6 @@ Vue.component('coosv-table', {
     },
     methods: {
     	pageCallback: function(page_index, jq){
-    		console.log(jq);
     		var comp = this;
     		$(comp.$el).find("#pageNo").val(page_index);
     		$(comp.$el).find("#pageSize").val(10);
@@ -437,7 +456,6 @@ Vue.component('coosv-table', {
     		var togger = $(event.target).attr("data-toggle");
     		var href = $(event.target).attr("data-url");
     		var title = $(event.target).attr("title");
-    		console.log($(event.target));
     		if(togger=="modal"){
     			pageHelper.dialog({title:title,href:href,closeCallback:function(){comp.pageCallback(1)}});
     		}

@@ -51,6 +51,11 @@ public class MyBatisConfig implements TransactionManagementConfigurer{
         	//指定mapper xml目录
             ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
             bean.setMapperLocations(resolver.getResources("classpath:mapper/**/*.xml"));
+            bean.setConfigurationProperties(properties);
+            //设置驼峰式匹配
+            org.apache.ibatis.session.Configuration conf = new org.apache.ibatis.session.Configuration();
+            conf.setMapUnderscoreToCamelCase(true);
+            bean.setConfiguration(conf);
             return bean.getObject();
         } catch (Exception e) {
             e.printStackTrace();
